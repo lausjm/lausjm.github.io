@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>João Marcelo Laus · Engenharia Mecânica & MRO</title>
+  <meta name="description" content="Portfólio de João Marcelo Laus: engenharia mecânica aplicada à manutenção de trens de pouso (MRO), análise de dados, Power BI e modelagem 3D." />
+
+  <!-- Prévia ao compartilhar o link (LinkedIn, WhatsApp etc.) -->
+  <meta property="og:title" content="João Marcelo Laus · Engenharia Mecânica & MRO" />
+  <meta property="og:description" content="Engenharia mecânica, dados e aviação. Conheça minha trajetória." />
+  <meta property="og:image" content="assets/foto.jpg" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- ===================== NAVEGAÇÃO ===================== -->
+  <header class="nav">
+    <a href="#inicio" class="nav-logo" aria-label="Início">JML<span>.</span></a>
+    <nav class="nav-links" id="nav-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#trem">Trem de pouso</a>
+      <a href="#diario">Diário de bordo</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="theme-toggle" aria-label="Alternar tema claro/escuro">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== ALTÍMETRO (lateral) ===================== -->
+  <aside class="altimeter" aria-hidden="true">
+    <span class="alt-label">ALT</span>
+    <div class="alt-track"><div class="alt-fill" id="alt-fill"></div><div class="alt-plane" id="alt-plane">✈</div></div>
+    <span class="alt-value" id="alt-value">35.000</span>
+    <span class="alt-unit">ft</span>
+    <span class="alt-status" id="alt-status">CRUZEIRO</span>
+  </aside>
+
+  <main>
+    <!-- ===================== HERO ===================== -->
+    <section id="inicio" class="hero">
+      <svg class="flight-path" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <path id="flight" d="M -80 560 C 260 520, 380 180, 700 230 S 1050 120, 1300 60" />
+        <g class="plane">
+          <path d="M0 0 L-8 -3 L-14 -15 L-19 -15 L-15 -2 L-23 -2 L-27 -8 L-30 -8 L-28 0 L-30 8 L-27 8 L-23 2 L-15 2 L-19 15 L-14 15 L-8 3 Z" />
+          <animateMotion dur="16s" repeatCount="indefinite" rotate="auto">
+            <mpath href="#flight" />
+          </animateMotion>
+        </g>
+      </svg>
+
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <a href="#diario" class="status-pill reveal">
+            <span class="dot"></span> Em operação · DTX Aerospace · Galeão (GIG)
+          </a>
+          <h1 class="reveal">Olá, eu sou<br /><span class="grad">João Marcelo Laus</span></h1>
+          <p class="typed-line reveal">
+            Engenharia mecânica aplicada a <span id="typed" class="typed"></span><span class="caret">|</span>
+          </p>
+          <p class="lead reveal">
+            Atuo em <strong>MRO de trens de pouso</strong> no Aeroporto do Galeão, em aeronaves como
+            Boeing 767 e Airbus A320. Uno engenharia e <strong>análise de dados</strong> para transformar
+            informação técnica em decisões melhores.
+          </p>
+          <div class="hero-cta reveal">
+            <a href="#diario" class="btn btn-primary">Ver minha trajetória</a>
+            <a href="assets/curriculo-joao-laus.pdf" class="btn btn-ghost" download>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
+              Baixar currículo
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-photo reveal">
+          <div class="radar" aria-hidden="true"></div>
+          <img src="assets/foto.jpg" alt="Foto de João Marcelo Laus" width="800" height="909" />
+          <span class="float-tag t1">Boeing 767</span>
+          <span class="float-tag t2">Airbus A320</span>
+          <span class="float-tag t3">Power BI</span>
+        </div>
+      </div>
+
+      <a href="#sobre" class="scroll-hint" aria-label="Rolar para baixo">
+        <span>role para decolar</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+      </a>
+    </section>
+
+    <!-- ===================== SOBRE (BENTO) ===================== -->
+    <section id="sobre" class="section">
+      <div class="container">
+        <p class="eyebrow reveal">01 · Sobre</p>
+        <h2 class="reveal">Engenharia, dados e aviação</h2>
+
+        <div class="bento">
+          <article class="card spot span-4 reveal">
+            <h3>Quem sou eu</h3>
+            <p>
+              Sou estudante de Engenharia Mecânica na Universidade Veiga de Almeida e atualmente
+              estagiário de engenharia na <strong>DTX Aerospace</strong>, onde apoio a elaboração da
+              documentação técnica de trens de pouso e a logística operacional dos técnicos.
+            </p>
+            <p>
+              Antes da aviação, passei pelo <strong>BNDES</strong> e pela <strong>SOTREQ | PREDIC</strong>,
+              onde desenvolvi um olhar orientado a dados: dashboards, KPIs de confiabilidade e relatórios
+              técnicos que apoiam a tomada de decisão.
+            </p>
+          </article>
+
+          <article class="card spot span-2 card-location reveal">
+            <div class="mini-radar" aria-hidden="true"><span></span></div>
+            <p class="mono muted">BASE DE OPERAÇÕES</p>
+            <h3>Rio de Janeiro</h3>
+            <p class="mono small">SBGL · GIG<br />22°48′S 43°15′W</p>
+          </article>
+
+          <article class="card spot span-2 reveal">
+            <p class="mono muted">EM NÚMEROS</p>
+            <div class="stats">
+              <div><span class="stat" data-count="2">0</span><span class="stat-plus">+</span><small>anos de experiência</small></div>
+              <div><span class="stat" data-count="3">0</span><small>empresas</small></div>
+              <div><span class="stat" data-count="7">0</span><span class="stat-plus">+</span><small>meses criando dashboards</small></div>
+            </div>
+          </article>
+
+          <article class="card spot span-2 reveal">
+            <p class="mono muted">AERONAVES</p>
+            <h3>No hangar</h3>
+            <div class="chips">
+              <span class="chip">Boeing 767</span>
+              <span class="chip">Airbus A320</span>
+              <span class="chip chip-muted">e outras</span>
+            </div>
+          </article>
+
+          <article class="card spot span-2 reveal">
+            <p class="mono muted">IDIOMAS & VIVÊNCIA</p>
+            <ul class="lang">
+              <li><span>Português</span><span class="mono small">Nativo</span></li>
+              <li><span>Inglês</span><span class="mono small">Avançado</span></li>
+            </ul>
+            <p class="small muted">Vivência nos 🇺🇸 Estados Unidos e em 🇵🇹 Portugal</p>
+          </article>
+
+          <article class="card spot span-6 card-edu reveal">
+            <div>
+              <p class="mono muted">FORMAÇÃO</p>
+              <h3>Engenharia Mecânica · Universidade Veiga de Almeida</h3>
+              <p class="muted">Em andamento · previsão de formatura entre 12/2026 e 06/2027</p>
+            </div>
+            <div class="courses">
+              <span class="chip">Power BI Completo · Udemy</span>
+              <span class="chip">Excel · Alura</span>
+              <span class="chip">Aprender a aprender · Alura</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TREM DE POUSO INTERATIVO ===================== -->
+    <section id="trem" class="section">
+      <div class="container">
+        <p class="eyebrow reveal">02 · No hangar</p>
+        <h2 class="reveal">Por dentro de um trem de pouso</h2>
+        <p class="section-sub reveal">É com isto que eu trabalho todos os dias. Clique nos pontos para explorar os componentes, ou recolha o trem.</p>
+
+        <div class="gear-wrap reveal">
+          <div class="card gear-stage" id="gear-stage">
+            <svg viewBox="0 0 520 410" class="gear-svg" role="img" aria-label="Diagrama interativo de um trem de pouso principal">
+              <!-- Estrutura / asa -->
+              <rect x="10" y="20" width="500" height="34" rx="6" class="g-struct" />
+              <text x="22" y="42" class="g-label">ESTRUTURA DA ASA</text>
+              <rect x="150" y="56" width="330" height="80" rx="10" class="g-well" />
+
+              <!-- Pista -->
+              <line x1="0" y1="392" x2="520" y2="392" class="g-ground" />
+              <text x="400" y="406" class="g-label">PISTA</text>
+
+              <!-- Contraventamento e atuador (somem ao recolher) -->
+              <g id="gear-brace" class="gear-brace">
+                <line x1="20" y1="54" x2="80" y2="130" class="g-link" />
+                <line x1="80" y1="130" x2="138" y2="185" class="g-link" />
+                <circle cx="80" cy="130" r="7" class="g-joint" />
+                <line x1="300" y1="54" x2="232" y2="104" class="g-actuator" />
+                <line x1="232" y1="104" x2="166" y2="140" class="g-rod" />
+                <g class="hotspot" data-part="brace" transform="translate(80 130)"><circle class="hs-pulse" r="15" /><circle class="hs-dot" r="7" /></g>
+                <g class="hotspot" data-part="atuador" transform="translate(266 79)"><circle class="hs-pulse" r="15" /><circle class="hs-dot" r="7" /></g>
+              </g>
+
+              <!-- Perna do trem (gira ao recolher) -->
+              <g id="gear-leg" class="gear-leg">
+                <circle cx="150" cy="328" r="60" class="g-tire" />
+                <circle cx="150" cy="328" r="36" class="g-rim" />
+                <circle cx="150" cy="328" r="25" class="g-brake" />
+                <circle cx="150" cy="328" r="9" class="g-hub" />
+
+                <rect x="134" y="70" width="32" height="180" rx="6" class="g-cyl" />
+                <rect x="140" y="246" width="20" height="74" rx="3" class="g-piston" />
+                <rect x="110" y="60" width="80" height="20" rx="10" class="g-trunnion" />
+                <circle cx="150" cy="70" r="6" class="g-joint" />
+
+                <polyline points="166,215 202,260 162,302" class="g-torque" />
+                <circle cx="202" cy="260" r="5" class="g-joint" />
+
+                <g class="hotspot" data-part="trunnion" transform="translate(150 70)"><circle class="hs-pulse" r="15" /><circle class="hs-dot" r="7" /></g>
+                <g class="hotspot" data-part="amortecedor" transform="translate(150 170)"><circle class="hs-pulse" r="15" /><circle class="hs-dot" r="7" /></g>
+                <g class="hotspot" data-part="torque" transform="translate(202 260)"><circle class="hs-pulse" r="15" /><circle class="hs-dot" r="7" /></g>
+                <g class="hotspot" data-part="freios" transform="translate(126 342)"><circle class="hs-pulse" r="15" /><circle class="hs-dot" r="7" /></g>
+                <g class="hotspot" data-part="rodas" transform="translate(98 360)"><circle class="hs-pulse" r="15" /><circle class="hs-dot" r="7" /></g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="gear-side">
+            <div class="card gear-panel">
+              <div class="gear-indicator">
+                <div class="lights" aria-hidden="true">
+                  <div><span class="light" id="l1"></span><small>NARIZ</small></div>
+                  <div><span class="light" id="l2"></span><small>ESQ</small></div>
+                  <div><span class="light" id="l3"></span><small>DIR</small></div>
+                </div>
+                <p class="mono gear-status" id="gear-status" aria-live="polite">BAIXADO E TRAVADO</p>
+              </div>
+              <button class="btn btn-ghost gear-toggle" id="gear-toggle">▲ Recolher trem</button>
+            </div>
+
+            <div class="card gear-info" aria-live="polite">
+              <p class="mono muted" id="part-tag">VISÃO GERAL</p>
+              <h3 id="part-title">O sistema mais solicitado da aeronave</h3>
+              <p id="part-text">
+                O trem de pouso absorve o impacto do pouso, sustenta o peso da aeronave no solo e precisa
+                recolher e baixar com total confiabilidade em todo voo. Em MRO, cada componente é desmontado,
+                inspecionado, reparado e testado conforme o manual do fabricante.
+              </p>
+              <div class="part-list" id="part-list"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DIÁRIO DE BORDO ===================== -->
+    <section id="diario" class="section">
+      <div class="container">
+        <p class="eyebrow reveal">03 · Diário de bordo</p>
+        <h2 class="reveal">Minha trajetória, trecho a trecho</h2>
+
+        <div class="timeline" id="timeline">
+          <div class="tl-line"><div class="tl-progress" id="tl-progress"></div></div>
+
+          <article class="tl-item reveal">
+            <span class="tl-dot live"></span>
+            <div class="pass">
+              <div class="pass-head">
+                <span class="mono">VOO JML-03</span>
+                <span class="mono badge-live">● EM CURSO</span>
+              </div>
+              <div class="pass-body">
+                <div class="pass-route">
+                  <h3>DTX Aerospace</h3>
+                  <p class="muted">Estágio em Engenharia Mecânica · Galeão (GIG)</p>
+                </div>
+                <p class="mono pass-date">08/2026 → hoje</p>
+              </div>
+              <div class="pass-tear"></div>
+              <ul>
+                <li>Engenharia aplicada de MRO (Maintenance, Repair and Overhaul)</li>
+                <li>Apoio ao time de Engenharia na elaboração da documentação técnica de trens de pouso</li>
+                <li>Apoio à equipe de técnicos na logística operacional</li>
+                <li>Melhoria de procedimentos, incluindo iniciativas de automação em desenvolvimento</li>
+                <li>Aplicação de ferramentas atuais de inteligência artificial generativa</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">MRO</span><span class="chip">Trem de pouso</span><span class="chip">Documentação técnica</span><span class="chip">Automação</span><span class="chip">IA generativa</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="tl-item reveal">
+            <span class="tl-dot"></span>
+            <div class="pass">
+              <div class="pass-head">
+                <span class="mono">VOO JML-02</span>
+                <span class="mono muted">CONCLUÍDO</span>
+              </div>
+              <div class="pass-body">
+                <div class="pass-route">
+                  <h3>SOTREQ | PREDIC</h3>
+                  <p class="muted">Estágio em Engenharia Mecânica · Confiabilidade</p>
+                </div>
+                <p class="mono pass-date">02/2026 → 08/2026</p>
+              </div>
+              <div class="pass-tear"></div>
+              <ul>
+                <li>Acompanhamento de KPIs de confiabilidade ligados à análise de óleo de equipamentos</li>
+                <li>Desenvolvimento e manutenção de dashboards em Power BI e Looker</li>
+                <li>Emissão de relatórios técnicos e desenvolvimento de procedimentos</li>
+                <li>Parceria com as áreas de negócio para decisões baseadas em dados</li>
+                <li>Projetos de modelagem 3D em SketchUp</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">Confiabilidade</span><span class="chip">Análise de óleo</span><span class="chip">KPIs</span><span class="chip">Power BI</span><span class="chip">Looker</span><span class="chip">SketchUp</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="tl-item reveal">
+            <span class="tl-dot"></span>
+            <div class="pass">
+              <div class="pass-head">
+                <span class="mono">VOO JML-01</span>
+                <span class="mono muted">CONCLUÍDO</span>
+              </div>
+              <div class="pass-body">
+                <div class="pass-route">
+                  <h3>BNDES</h3>
+                  <p class="muted">Estágio em Engenharia Mecânica · Credenciamento</p>
+                </div>
+                <p class="mono pass-date">09/2024 → 02/2026</p>
+              </div>
+              <div class="pass-tear"></div>
+              <ul>
+                <li>Credenciamento de máquinas e equipamentos no cadastro CFI do BNDES</li>
+                <li>Aferição do conteúdo local de máquinas e equipamentos</li>
+                <li>Relatórios técnicos de ocorrências para apresentação interna e a clientes</li>
+                <li>Análise, controle e acompanhamento das operações de financiamento</li>
+                <li>Acompanhamento de fornecedores para o controle dos dados</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">Credenciamento CFI</span><span class="chip">Conteúdo local</span><span class="chip">Relatórios técnicos</span><span class="chip">Fornecedores</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="tl-item tl-origin reveal">
+            <span class="tl-dot"></span>
+            <p class="mono muted">ORIGEM · Universidade Veiga de Almeida · Engenharia Mecânica</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJETOS ===================== -->
+    <section id="projetos" class="section">
+      <div class="container">
+        <p class="eyebrow reveal">04 · Projetos em destaque</p>
+        <h2 class="reveal">Entregas de que me orgulho</h2>
+
+        <div class="projects">
+          <article class="card spot project reveal">
+            <div class="project-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+            </div>
+            <h3>Dashboards para clientes offshore</h3>
+            <p>Painéis em Power BI desenvolvidos para clientes do setor offshore como <strong>PRIO</strong> e <strong>Constellation</strong>, transformando dados técnicos em indicadores claros para a gestão.</p>
+            <div class="chips"><span class="chip">Power BI</span><span class="chip">KPIs</span><span class="chip">Offshore</span></div>
+          </article>
+
+          <article class="card spot project reveal">
+            <div class="project-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M12 22V12M21 7l-9 5-9-5"/></svg>
+            </div>
+            <h3>Sala de lubrificação · VALE</h3>
+            <p>Modelagem 3D em SketchUp para a entrega do projeto de uma sala de lubrificação, apoiando a visualização do layout e a comunicação com o cliente.</p>
+            <div class="chips"><span class="chip">SketchUp</span><span class="chip">Modelagem 3D</span><span class="chip">Lubrificação</span></div>
+          </article>
+
+          <article class="card spot project reveal">
+            <div class="project-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <h3>Credenciamento de equipamentos · BNDES</h3>
+            <p>Análise técnica e documental de máquinas e equipamentos para o cadastro CFI, incluindo a aferição de conteúdo local e o controle dos dados enviados pelos fabricantes.</p>
+            <div class="chips"><span class="chip">Documentação</span><span class="chip">Análise técnica</span><span class="chip">Dados</span></div>
+          </article>
+
+          <article class="card spot project reveal">
+            <div class="project-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8L7 17M17 7l2.8-2.8"/></svg>
+            </div>
+            <h3>Automação em MRO <span class="badge-wip mono">EM ANDAMENTO</span></h3>
+            <p>Melhoria de procedimentos de engenharia na manutenção de trens de pouso, explorando automação e IA generativa para ganhar agilidade na documentação técnica.</p>
+            <div class="chips"><span class="chip">Automação</span><span class="chip">IA generativa</span><span class="chip">MRO</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HABILIDADES ===================== -->
+    <section id="habilidades" class="section">
+      <div class="container">
+        <p class="eyebrow reveal">05 · Painel de instrumentos</p>
+        <h2 class="reveal">Habilidades e ferramentas</h2>
+
+        <div class="skills">
+          <article class="card spot reveal">
+            <p class="mono muted">⚙ ENGENHARIA</p>
+            <div class="chips">
+              <span class="chip">MRO</span><span class="chip">Trem de pouso</span><span class="chip">Documentação técnica</span><span class="chip">Confiabilidade</span><span class="chip">Análise de óleo</span><span class="chip">Procedimentos</span>
+            </div>
+          </article>
+          <article class="card spot reveal">
+            <p class="mono muted">▤ DADOS & BI</p>
+            <div class="chips">
+              <span class="chip">Power BI</span><span class="chip">Looker</span><span class="chip">SQL</span><span class="chip">KPIs</span><span class="chip">Excel</span><span class="chip">Análise preditiva</span>
+            </div>
+          </article>
+          <article class="card spot reveal">
+            <p class="mono muted">&lt;/&gt; PROGRAMAÇÃO</p>
+            <div class="chips">
+              <span class="chip">Python</span><span class="chip">C++</span><span class="chip">JavaScript</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">IA generativa</span>
+            </div>
+          </article>
+          <article class="card spot reveal">
+            <p class="mono muted">◇ PROJETO & CAD</p>
+            <div class="chips">
+              <span class="chip">SketchUp</span><span class="chip">AutoCAD</span><span class="chip">Modelagem 3D</span><span class="chip">Pacote Office</span>
+            </div>
+          </article>
+          <article class="card spot span-all reveal">
+            <p class="mono muted">♥ COMPORTAMENTAIS</p>
+            <div class="chips">
+              <span class="chip">Visão analítica</span><span class="chip">Trabalho em equipe</span><span class="chip">Escuta ativa</span><span class="chip">Negociação</span><span class="chip">Resiliência</span><span class="chip">Gestão de conflitos</span><span class="chip">Proatividade</span><span class="chip">Organização</span><span class="chip">Foco no cliente</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTATO ===================== -->
+    <section id="contato" class="section">
+      <div class="container">
+        <div class="contact reveal">
+          <p class="eyebrow">06 · Pouso</p>
+          <h2>Vamos conversar?</h2>
+          <p class="section-sub">Aberto a oportunidades em engenharia de manutenção aeronáutica, confiabilidade e dados.</p>
+          <div class="contact-actions">
+            <button class="btn btn-primary" id="copy-email" data-email="jm.laus@outlook.com">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+              <span>jm.laus@outlook.com</span>
+            </button>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/joaomarcelolaus/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z"/></svg>
+              LinkedIn
+            </a>
+            <a class="btn btn-ghost" href="assets/curriculo-joao-laus.pdf" download>Currículo (PDF)</a>
+          </div>
+          <p class="mono small muted copy-feedback" id="copy-feedback" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="mono small muted">© <span id="year"></span> João Marcelo Laus</p>
+      <p class="mono small muted">Feito à mão com HTML, CSS & JavaScript · ✈ GIG</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
