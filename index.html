@@ -9,7 +9,8 @@
   <!-- Prévia ao compartilhar o link (LinkedIn, WhatsApp etc.) -->
   <meta property="og:title" content="João Marcelo Laus · Engenharia Mecânica & MRO" />
   <meta property="og:description" content="Engenharia mecânica, dados e aviação. Conheça minha trajetória." />
-  <meta property="og:image" content="assets/foto.jpg" />
+  <meta property="og:image" content="https://lausjm.github.io/assets/foto.jpg" />
+  <meta property="og:url" content="https://lausjm.github.io/" />
   <meta property="og:type" content="website" />
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>" />
@@ -27,7 +28,6 @@
     <a href="#inicio" class="nav-logo" aria-label="Início">JML<span>.</span></a>
     <nav class="nav-links" id="nav-links">
       <a href="#sobre">Sobre</a>
-      <a href="#trem">Trem de pouso</a>
       <a href="#diario">Diário de bordo</a>
       <a href="#projetos">Projetos</a>
       <a href="#habilidades">Habilidades</a>
@@ -77,8 +77,9 @@
           </p>
           <p class="lead reveal">
             Atuo em <strong>MRO de trens de pouso</strong> no Aeroporto do Galeão, em aeronaves como
-            Boeing 767 e Airbus A320. Uno engenharia e <strong>análise de dados</strong> para transformar
-            informação técnica em decisões melhores.
+            Boeing 767, Airbus A320 e ATR 72. Uno engenharia, <strong>análise de dados</strong> e
+            <strong>inteligência artificial</strong> para transformar informação técnica em decisões melhores,
+            otimização de tempo e resultados mais precisos.
           </p>
           <div class="hero-cta reveal">
             <a href="#diario" class="btn btn-primary">Ver minha trajetória</a>
@@ -132,7 +133,7 @@
             <p class="mono small">SBGL · GIG<br />22°48′S 43°15′W</p>
           </article>
 
-          <article class="card spot span-2 reveal">
+          <article class="card spot span-3 reveal">
             <p class="mono muted">EM NÚMEROS</p>
             <div class="stats">
               <div><span class="stat" data-count="2">0</span><span class="stat-plus">+</span><small>anos de experiência</small></div>
@@ -141,23 +142,14 @@
             </div>
           </article>
 
-          <article class="card spot span-2 reveal">
-            <p class="mono muted">AERONAVES</p>
-            <h3>No hangar</h3>
-            <div class="chips">
-              <span class="chip">Boeing 767</span>
-              <span class="chip">Airbus A320</span>
-              <span class="chip chip-muted">e outras</span>
-            </div>
-          </article>
-
-          <article class="card spot span-2 reveal">
+          <article class="card spot span-3 reveal">
             <p class="mono muted">IDIOMAS & VIVÊNCIA</p>
             <ul class="lang">
               <li><span>Português</span><span class="mono small">Nativo</span></li>
-              <li><span>Inglês</span><span class="mono small">Avançado</span></li>
+              <li><span>Inglês</span><span class="mono small">Avançado · uso diário</span></li>
             </ul>
-            <p class="small muted">Vivência nos 🇺🇸 Estados Unidos e em 🇵🇹 Portugal</p>
+            <p class="small muted">Uso o inglês todos os dias no trabalho, já que meus gestores não falam português.</p>
+            <p class="small muted">Vivência nos 🇺🇸 Estados Unidos e em 🇵🇹 Portugal.</p>
           </article>
 
           <article class="card spot span-6 card-edu reveal">
@@ -169,91 +161,9 @@
             <div class="courses">
               <span class="chip">Power BI Completo · Udemy</span>
               <span class="chip">Excel · Alura</span>
-              <span class="chip">Aprender a aprender · Alura</span>
+              <a class="chip chip-link" href="https://freecodecamp.org/certification/joaozin/responsive-web-design" target="_blank" rel="noopener" title="Certificação de ~300 horas, concluída em 25/01/2024. Clique para verificar.">Responsive Web Design · freeCodeCamp · 2024 ↗</a>
             </div>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== TREM DE POUSO INTERATIVO ===================== -->
-    <section id="trem" class="section">
-      <div class="container">
-        <p class="eyebrow reveal">02 · No hangar</p>
-        <h2 class="reveal">Por dentro de um trem de pouso</h2>
-        <p class="section-sub reveal">É com isto que eu trabalho todos os dias. Clique nos pontos para explorar os componentes, ou recolha o trem.</p>
-
-        <div class="gear-wrap reveal">
-          <div class="card gear-stage" id="gear-stage">
-            <svg viewBox="0 0 520 410" class="gear-svg" role="img" aria-label="Diagrama interativo de um trem de pouso principal">
-              <!-- Estrutura / asa -->
-              <rect x="10" y="20" width="500" height="34" rx="6" class="g-struct" />
-              <text x="22" y="42" class="g-label">ESTRUTURA DA ASA</text>
-              <rect x="150" y="56" width="330" height="80" rx="10" class="g-well" />
-
-              <!-- Pista -->
-              <line x1="0" y1="392" x2="520" y2="392" class="g-ground" />
-              <text x="400" y="406" class="g-label">PISTA</text>
-
-              <!-- Contraventamento e atuador (somem ao recolher) -->
-              <g id="gear-brace" class="gear-brace">
-                <line x1="20" y1="54" x2="80" y2="130" class="g-link" />
-                <line x1="80" y1="130" x2="138" y2="185" class="g-link" />
-                <circle cx="80" cy="130" r="7" class="g-joint" />
-                <line x1="300" y1="54" x2="232" y2="104" class="g-actuator" />
-                <line x1="232" y1="104" x2="166" y2="140" class="g-rod" />
-                <g class="hotspot" data-part="brace" transform="translate(80 130)"><circle class="hs-pulse" r="15" /><circle class="hs-dot" r="7" /></g>
-                <g class="hotspot" data-part="atuador" transform="translate(266 79)"><circle class="hs-pulse" r="15" /><circle class="hs-dot" r="7" /></g>
-              </g>
-
-              <!-- Perna do trem (gira ao recolher) -->
-              <g id="gear-leg" class="gear-leg">
-                <circle cx="150" cy="328" r="60" class="g-tire" />
-                <circle cx="150" cy="328" r="36" class="g-rim" />
-                <circle cx="150" cy="328" r="25" class="g-brake" />
-                <circle cx="150" cy="328" r="9" class="g-hub" />
-
-                <rect x="134" y="70" width="32" height="180" rx="6" class="g-cyl" />
-                <rect x="140" y="246" width="20" height="74" rx="3" class="g-piston" />
-                <rect x="110" y="60" width="80" height="20" rx="10" class="g-trunnion" />
-                <circle cx="150" cy="70" r="6" class="g-joint" />
-
-                <polyline points="166,215 202,260 162,302" class="g-torque" />
-                <circle cx="202" cy="260" r="5" class="g-joint" />
-
-                <g class="hotspot" data-part="trunnion" transform="translate(150 70)"><circle class="hs-pulse" r="15" /><circle class="hs-dot" r="7" /></g>
-                <g class="hotspot" data-part="amortecedor" transform="translate(150 170)"><circle class="hs-pulse" r="15" /><circle class="hs-dot" r="7" /></g>
-                <g class="hotspot" data-part="torque" transform="translate(202 260)"><circle class="hs-pulse" r="15" /><circle class="hs-dot" r="7" /></g>
-                <g class="hotspot" data-part="freios" transform="translate(126 342)"><circle class="hs-pulse" r="15" /><circle class="hs-dot" r="7" /></g>
-                <g class="hotspot" data-part="rodas" transform="translate(98 360)"><circle class="hs-pulse" r="15" /><circle class="hs-dot" r="7" /></g>
-              </g>
-            </svg>
-          </div>
-
-          <div class="gear-side">
-            <div class="card gear-panel">
-              <div class="gear-indicator">
-                <div class="lights" aria-hidden="true">
-                  <div><span class="light" id="l1"></span><small>NARIZ</small></div>
-                  <div><span class="light" id="l2"></span><small>ESQ</small></div>
-                  <div><span class="light" id="l3"></span><small>DIR</small></div>
-                </div>
-                <p class="mono gear-status" id="gear-status" aria-live="polite">BAIXADO E TRAVADO</p>
-              </div>
-              <button class="btn btn-ghost gear-toggle" id="gear-toggle">▲ Recolher trem</button>
-            </div>
-
-            <div class="card gear-info" aria-live="polite">
-              <p class="mono muted" id="part-tag">VISÃO GERAL</p>
-              <h3 id="part-title">O sistema mais solicitado da aeronave</h3>
-              <p id="part-text">
-                O trem de pouso absorve o impacto do pouso, sustenta o peso da aeronave no solo e precisa
-                recolher e baixar com total confiabilidade em todo voo. Em MRO, cada componente é desmontado,
-                inspecionado, reparado e testado conforme o manual do fabricante.
-              </p>
-              <div class="part-list" id="part-list"></div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -261,7 +171,7 @@
     <!-- ===================== DIÁRIO DE BORDO ===================== -->
     <section id="diario" class="section">
       <div class="container">
-        <p class="eyebrow reveal">03 · Diário de bordo</p>
+        <p class="eyebrow reveal">02 · Diário de bordo</p>
         <h2 class="reveal">Minha trajetória, trecho a trecho</h2>
 
         <div class="timeline" id="timeline">
@@ -362,7 +272,7 @@
     <!-- ===================== PROJETOS ===================== -->
     <section id="projetos" class="section">
       <div class="container">
-        <p class="eyebrow reveal">04 · Projetos em destaque</p>
+        <p class="eyebrow reveal">03 · Projetos em destaque</p>
         <h2 class="reveal">Entregas de que me orgulho</h2>
 
         <div class="projects">
@@ -408,20 +318,20 @@
     <!-- ===================== HABILIDADES ===================== -->
     <section id="habilidades" class="section">
       <div class="container">
-        <p class="eyebrow reveal">05 · Painel de instrumentos</p>
+        <p class="eyebrow reveal">04 · Painel de instrumentos</p>
         <h2 class="reveal">Habilidades e ferramentas</h2>
 
         <div class="skills">
           <article class="card spot reveal">
             <p class="mono muted">⚙ ENGENHARIA</p>
             <div class="chips">
-              <span class="chip">MRO</span><span class="chip">Trem de pouso</span><span class="chip">Documentação técnica</span><span class="chip">Confiabilidade</span><span class="chip">Análise de óleo</span><span class="chip">Procedimentos</span>
+              <span class="chip">MRO</span><span class="chip">Trem de pouso</span><span class="chip">Documentação técnica</span><span class="chip">Confiabilidade</span><span class="chip">Análise de óleo</span>
             </div>
           </article>
           <article class="card spot reveal">
             <p class="mono muted">▤ DADOS & BI</p>
             <div class="chips">
-              <span class="chip">Power BI</span><span class="chip">Looker</span><span class="chip">SQL</span><span class="chip">KPIs</span><span class="chip">Excel</span><span class="chip">Análise preditiva</span>
+              <span class="chip">Power BI</span><span class="chip">Looker</span><span class="chip">SQL</span><span class="chip">KPIs</span><span class="chip">Excel</span>
             </div>
           </article>
           <article class="card spot reveal">
@@ -433,7 +343,7 @@
           <article class="card spot reveal">
             <p class="mono muted">◇ PROJETO & CAD</p>
             <div class="chips">
-              <span class="chip">SketchUp</span><span class="chip">AutoCAD</span><span class="chip">Modelagem 3D</span><span class="chip">Pacote Office</span>
+              <span class="chip">SketchUp</span><span class="chip">AutoCAD</span><span class="chip">Pacote Office</span>
             </div>
           </article>
           <article class="card spot span-all reveal">
@@ -450,7 +360,7 @@
     <section id="contato" class="section">
       <div class="container">
         <div class="contact reveal">
-          <p class="eyebrow">06 · Pouso</p>
+          <p class="eyebrow">05 · Pouso</p>
           <h2>Vamos conversar?</h2>
           <p class="section-sub">Aberto a oportunidades em engenharia de manutenção aeronáutica, confiabilidade e dados.</p>
           <div class="contact-actions">
